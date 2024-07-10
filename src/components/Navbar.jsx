@@ -122,7 +122,7 @@ export default function Navbar(props) {
       <Link className="navLink" to="/list"><ViewListIcon />List</Link>
       <Link onClick={handleClick} className="navLink" to="/login"> 
         {/* onClick={"handleClick(); handleActive();"} */}
-        {userLogged ? <><LogoutIcon />Deslogar</> : <><LoginIcon />Logar</>}
+        {userLogged ? <><LogoutIcon />Logout</> : <><LoginIcon />Login</>}
       </Link>
     </Stack>
   );

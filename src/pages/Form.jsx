@@ -4,7 +4,7 @@ import OwnFab from "../components/Fab";
 import OwnTypography from "../components/Typography";
 import OwnIconButton from "../components/IconButton";
 import AppRegistrationIcon from '@mui/icons-material/AppRegistration';
-import { AddCircleOutline, Visibility, VisibilityOff } from "@mui/icons-material";
+import { AddCircleOutline, Visibility, VisibilityOff, Assignment } from "@mui/icons-material";
 import { Grid, IconButton, InputAdornment } from "@mui/material";
 import OwnTextField from "../components/TextField";
 import fakeCreate from "../utils/fakeCreate";
@@ -39,12 +39,17 @@ export default function Form(props) {
       <OwnTypography variant="h4" gutterBottom>
         Cadastro
       </OwnTypography>
-      <OwnGrid spacing={3} justifyContent="center">
-        <Grid item xs={1} style={styleGridItems}>
-          <OwnAvatar></OwnAvatar>
-        </Grid>
+      <OwnGrid id="signupGrid" spacing={1} justifyContent="center" alignItems="center">
         <Grid item xs={11}>
-          <OwnTextField fullWidth placeholder="Email"></OwnTextField>
+          <OwnTextField fullWidth label="Nome de Usuário"></OwnTextField>
+        </Grid>
+        <Grid item xs={1} style={styleGridItems}>
+          <OwnAvatar variant="rounded" style={{width:"fit-content", height: "30px"}} >
+            <Assignment />
+          </OwnAvatar>
+        </Grid>
+        <Grid item xs={12}>
+          <OwnTextField fullWidth label="Email"></OwnTextField>
         </Grid>
         <Grid item xs={12}>
           {/* <OwnTextField fullWidth placeholder="Senha"></OwnTextField> */}
@@ -66,13 +71,33 @@ export default function Form(props) {
             label="Digite a senha"
           />
         </Grid>
-        <Grid item xs={6} style={styleGridItems}>
-          <OwnIconButton onClick={handleClick} aria-label="login" color="tertiary">
-            Registrar
+        <Grid item xs={12}>
+          <OwnTextField fullWidth
+            variant="outlined"
+            InputProps={
+              {endAdornment: <InputAdornment position="end">
+                <IconButton
+                  aria-label="toggle password visibility"
+                  onClick={handleClickShowPassword}
+                  onMouseDown={handleMouseDownPassword}
+                  edge="end"
+                >
+                  {showPassword ? <VisibilityOff /> : <Visibility />}
+                </IconButton>
+              </InputAdornment>}
+            }
+            type={showPassword ? "text" : "password"}
+            label="Confirme a senha"
+          />
+        </Grid>
+        <Grid item xs={5} style={styleGridItems}>
+          <OwnIconButton onClick={handleClick} aria-label="login" color="tertiary" style={{width: "56px", height: "56px", border: "1px solid"}}>
+            {/* Registrar */}
             <AppRegistrationIcon />
           </OwnIconButton>
         </Grid>
-        <Grid item xs={6} style={styleGridItems}>
+        <Grid item xs={2}><p style={{textAlign: "center"}}>OU</p></Grid>
+        <Grid item xs={5} style={styleGridItems}>
           <OwnFab onClick={handleClick} color="primary">
             <AddCircleOutline />
           </OwnFab>

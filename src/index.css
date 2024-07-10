@@ -14,12 +14,13 @@ html, body, #root {
   overflow-x: hidden;
   background: rgb(255,255,255);
   background: linear-gradient(90deg, rgba(255,255,255,0.8743872549019608) 50%, rgba(236,236,236,1) 100%);
-  /* margin: 0;
-  padding: 0; */
+  margin: 0;
+  padding: 0;
 }
 
 .main-container {
   padding-bottom: 150px;
+  margin: 10px;
 }
 
 a.navLink {
@@ -33,7 +34,7 @@ a.navLink {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  font-size: 80%;
+  font-size: 70%;
 }
 
 a.navLink:link, a.navLink:visited, a.navLink:active {
@@ -90,11 +91,13 @@ a.navLink:active {
 
   a.navLink {
     border: 2px solid black;
-    border-radius: 2px;
     padding: 20px 40px;
-    width: 300px;
-    /* flex-grow: 1; */
-    font-size: 80%;
+    flex-basis: 300px;
+  }
+
+  #signupGrid {
+    width: 481px;
+    margin: auto;
   }
 
 }
